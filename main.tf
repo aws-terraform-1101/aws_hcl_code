@@ -24,8 +24,13 @@ resource "aws_instance" "app_server" {
 }
 
 
-resource "aws_instance" "ec2" {
+#create aws ec2 instance using terraform
+provider "aws" {
+  region = "ap-south-1"
 
+}
+resource "aws_instance" "ec2" {
+  ami = "ami-019f0583716f0aec4" 
   instance_type = "t2.micro"
   tags = {
     Name = "visualscrapy"
