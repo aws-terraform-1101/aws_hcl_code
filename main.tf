@@ -26,7 +26,7 @@ resource "aws_instance" "app_server" {
 
 
 resource "aws_instance" "ec2" {
-  ami = "ami-0b9064170e32bde34" 
+  ami = "ami-01019fb8b29b5dc5d" 
   instance_type = "t2.micro"
   tags = {
     Name = "visualscrapy"
