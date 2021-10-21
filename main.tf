@@ -1,24 +1,18 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 3.27"
-    }
-  }
+module "ec2_instance" {
+  source  = "terraform-aws-modules/ec2-instance/aws"
+  version = "~> 3.0"
 
-  required_version = ">= 0.14.9"
-}
+  name = "single-instance"
 
-provider "aws" {
-  profile = "1101"
-  region  = "us-west-2"
-}
+  ami                    = "ami-ebd02392"
+  instance_type          = "t2.micro"
+  key_name               = "user1"
+  monitoring             = true
+  vpc_security_group_ids = ["sg-12345678"]
+  subnet_id              = "subnet-eddcdzz4"
 
-
-resource "aws_instance" "ec2" {
-  ami = "ami-01019fb8b29b5dc5d" 
-  instance_type = "t2.micro"
   tags = {
-    Name = "visualscrapy"
+    Terraform   = "true"
+    Environment = "dev"
   }
 }
