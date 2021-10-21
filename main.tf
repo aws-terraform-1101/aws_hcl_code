@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "aws" {
-  profile = "SD1101_new"
+  profile = "SQWEDFGHD1101_new"
   region  = "us-west-2"
 }
 
