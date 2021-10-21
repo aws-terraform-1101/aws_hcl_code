@@ -22,3 +22,12 @@ resource "aws_instance" "app_server" {
     Name = "ExampleAppServerInstance"
   }
 }
+
+
+resource "aws_instance" "ec2" {
+
+  instance_type = "t2.micro"
+  tags = {
+    Name = "visualscrapy"
+  }
+}
